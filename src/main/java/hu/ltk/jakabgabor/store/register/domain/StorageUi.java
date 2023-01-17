@@ -17,9 +17,9 @@ public class StorageUi {
         boolean isRunning = true;
         chooseDataStorageMode();
         String choosedDataStorageMode = scanner.next();
+        slimStoreRegister.setPersistenceType(choosedDataStorageMode.equals("m")
+                ? StorePersistenceType.InMemory : StorePersistenceType.File);
         while (isRunning) {
-            slimStoreRegister.setPersistenceType(choosedDataStorageMode.equals("m")
-                    ? StorePersistenceType.InMemory : StorePersistenceType.File);
             printMenu();
             String command = scanner.next();
             switch (command) {

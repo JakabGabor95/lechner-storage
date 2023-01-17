@@ -6,9 +6,9 @@ public class StoreItem {
     private String productName;
     private Integer piece;
 
-    public StoreItem(String productName) {
+    public StoreItem(String productName, Integer piece) {
         this.productName = productName;
-        this.piece = 0;
+        this.piece = piece;
     }
 
     public String getProductName() {
