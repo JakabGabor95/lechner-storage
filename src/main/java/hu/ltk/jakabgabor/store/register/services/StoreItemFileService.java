@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 
 public class StoreItemFileService implements PersistenceInterface {
     private Path storageFile = Paths.get("files/storage.csv");
+    private List<StoreItem> storageList;
+
+    public StoreItemFileService() {
+        this.storageList = new ArrayList<>();
+    }
+
     @Override
     public StoreItem loadItem(String productName) {
         StoreItem buyableProduct = checkProductIsBuyable(productName);
@@ -29,44 +35,47 @@ public class StoreItemFileService implements PersistenceInterface {
     public void saveItem(StoreItem item) {
         StoreItem buyableProduct = checkProductIsBuyable(item.getProductName());
         if(buyableProduct == null) {
-            writeToFile(item);
+            storageList.add(item);
+            writeToFile();
             return;
         }
 
         buyableProduct.setPiece(buyableProduct.getPiece() + item.getPiece());
-        writeToFile(buyableProduct);
+        writeToFile();
+    }
+
+    public void writeToFile() {
+        try (BufferedWriter writer = Files.newBufferedWriter((storageFile))) {
+            for (StoreItem storeItem : storageList) {
+                String itemString = "";
+                itemString += storeItem.getProductName() + ",";
+                itemString += storeItem.getPiece() + ",";
+                writer.write(itemString);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private StoreItem checkProductIsBuyable(String productName) {
-        List<String> storageStrings = new ArrayList<>();
         try {
-            storageStrings = Files.readAllLines(storageFile);
+            storageList = Files.readAllLines(storageFile).stream().map(storageString -> {
+                String[] storeData = storageString.split(",");
+                StoreItem newStoreItem = new StoreItem(storeData[0], Integer.parseInt(storeData[1]));
+                return newStoreItem;
+            }).collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
 
-       return storageStrings.stream().map(storageString -> {
-            String[] storeData = storageString.split(",");
-            StoreItem newStoreItem = new StoreItem(storeData[0], Integer.parseInt(storeData[1]));
-            return newStoreItem;
-        }).collect(Collectors.toList()).stream().filter(storeItem -> {
-            System.out.println(storeItem.getProductName());
+       return storageList.stream().filter(storeItem -> {
             return storeItem.getProductName()
                     .equals(productName);
         }).findFirst().orElse(null);
     }
 
-    private void writeToFile(StoreItem item) {
-        try (BufferedWriter writer = Files.newBufferedWriter((storageFile), StandardOpenOption.APPEND)) {
-            String itemString = "";
-            itemString += item.getProductName() + ",";
-            itemString += item.getPiece() + ",";
-            writer.write(itemString);
-            writer.newLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 
 }
