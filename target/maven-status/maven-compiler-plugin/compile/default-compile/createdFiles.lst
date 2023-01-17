@@ -1,8 +1,9 @@
 hu/ltk/jakabgabor/store/register/exceptions/ItemNotAvailableException.class
 hu/ltk/jakabgabor/store/register/domain/StorePersistenceType.class
+hu/ltk/jakabgabor/store/register/services/StoreItemFileService.class
 hu/ltk/jakabgabor/store/register/domain/StoreItem.class
+hu/ltk/jakabgabor/store/register/services/StoreItemInMemoryService.class
 hu/ltk/jakabgabor/store/register/StoreRegisterSystemApplication.class
 hu/ltk/jakabgabor/store/register/domain/SlimStoreRegister.class
-hu/ltk/jakabgabor/store/register/domain/StorageUi.class
 hu/ltk/jakabgabor/store/register/interfaces/PersistenceInterface.class
 hu/ltk/jakabgabor/store/register/interfaces/ApplicationInterface.class

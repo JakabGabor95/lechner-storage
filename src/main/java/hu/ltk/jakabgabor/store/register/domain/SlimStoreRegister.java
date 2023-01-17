@@ -36,7 +36,6 @@ public class SlimStoreRegister implements ApplicationInterface {
                 ? foundedItem.getPiece() : numberOfProduct;
 
         persistenceInterface.saveItem(new StoreItem(foundedItem.getProductName(), - salableProducts));
-        System.out.println("Sikeresen megvásároltál " + salableProducts + " terméket!");
         return salableProducts;
     }
 }

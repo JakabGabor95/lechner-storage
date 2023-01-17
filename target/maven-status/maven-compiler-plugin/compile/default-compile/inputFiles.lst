@@ -1,8 +1,9 @@
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/domain/StoreItem.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/interfaces/PersistenceInterface.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/exceptions/ItemNotAvailableException.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/domain/StorageUi.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/interfaces/ApplicationInterface.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/domain/SlimStoreRegister.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/domain/StorePersistenceType.java
-/Users/macbookpro/Desktop/store-register-system/src/main/java/hu/ltk/jakabgabor/store/register/StoreRegisterSystemApplication.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/domain/SlimStoreRegister.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/exceptions/ItemNotAvailableException.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/StoreRegisterSystemApplication.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/services/StoreItemInMemoryService.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/interfaces/PersistenceInterface.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/domain/StoreItem.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/services/StoreItemFileService.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/domain/StorePersistenceType.java
+/Users/macbookpro/Desktop/lechner-storage/src/main/java/hu/ltk/jakabgabor/store/register/interfaces/ApplicationInterface.java
